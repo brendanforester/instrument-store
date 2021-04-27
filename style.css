@@ -1,0 +1,64 @@
+#instrument-store {
+  width: 100%;
+  font-family: sans-serif;
+}
+
+#products {
+  display: inline-flex;
+  width: 100%;
+}
+
+.popUp {
+  height: 400px;
+  width: 400px;
+  background-color: rgba(250, 250, 250);
+  color: black;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.product {
+  height: 250px;
+  width: 300px;
+  border-radius: 10px;
+  border: 1.5px solid black;
+  box-shadow: 2px 2px 2px grey;
+  margin-top: 10px;
+  margin-left: 20px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.product img {
+  height: 100px;
+}
+
+.fender:hover {
+  background-color: red;
+  color: white;
+}
+
+.yamaha:hover {
+  background-color: green;
+  color: white;
+}
+
+.maton:hover {
+  background-color: blue;
+  color: white;
+}
+
+.hide {
+  display: none;
+}
+
+.right {
+  float: right;
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Instrument Store</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div id="instrument-store">
+  <div>
+    <button v-on:click="addInstrument = !addInstrument">Add New Instrument</button>
+    <div class="popUp" v-if="!addInstrument">
+      <h3>Add New Instrument</h3>
+      <label for="name">
+        <input type="text" placeholder="Instrument Name" v-model="newName">
+      </label>
+      <label for="type">
+        <input type="text" placeholder="Instrument Type" v-model="newType">
+      </label>
+      <label for="brand">Select a brand:</label>
+      <select name="brand" v-model="newBrand">
+        <option value="yamaha" id="yamaha">Yamaha</option>
+        <option value="fender" id="fender">Fender</option>
+        <option value="maton" id="maton">Maton</option>
+      </select>
+      <label for="price">
+        <input type="text" placeholder="Instrument Price" v-model="newPrice">
+      </label>
+      <label for="image">
+        <input type="text" placeholder="Enter an image URL">
+      </label>
+      <button v-on:click="addNew">Add Instrument</button>
+    </div>
+  </div>
+  <button class="right">Cart: {{count}} </button>
+  <div>
+    <div id="products">
+      <div v-for="item,index in cards" class="product" v-bind:class="item.brand" v-on:click="closeLook(index)">
+        <div>
+          <img v-bind:src="item.image">
+          <p>{{item.name}}</p>
+          <div v-on:click="submit">
+            <button>Add to Cart</button>
+          </div>
+        </div>
+        <div class="popUp" v-bind:class="{hide:item.popUp===false}">
+          <img v-bind:src="item.image">
+          <p>Name: {{item.name}}</p>
+          <p>Type: {{item.type}}</p>
+          <p>Brand: {{item.brand}}</p>
+          <p>Price: {{item.price}}</p>
+          <div v-on:click="submit">
+            <button>Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.min.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>
